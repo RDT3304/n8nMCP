@@ -58,3 +58,10 @@ ENV MCPO_PORT=8002
 # Command to run mcpo, passing the n8n-mcp's stdio command.
 # This launches the compiled n8n-mcp server and proxies its standard I/O to mcpo.
 CMD mcpo --port ${MCPO_PORT} --api-key ${MCPO_API_KEY} -- node /mcp_server_src/dist/index.js
+
+# Command to run mcpo, passing the n8n-mcp's stdio command.
+# This launches the compiled n8n-mcp server and proxies its standard I/O to mcpo.
+# Temporarily change CMD for debugging:
+# CMD mcpo --port ${MCPO_PORT} --api-key ${MCPO_API_KEY} -- node /mcp_server_src/dist/index.js
+CMD node /mcp_server_src/dist/index.js # <--- CHANGE TO THIS FOR DEBUGGING
+Step 2: Rebuild and redeploy

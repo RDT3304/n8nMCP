@@ -45,14 +45,15 @@ RUN npm run build
 # Set the primary working directory back to /app for mcpo execution
 WORKDIR /app
 
-# Expose the port mcpo will listen on (changed to 8002)
+# Expose the port mcpo will listen on
 EXPOSE 8002
 
 # Set default API keys and port for mcpo.
 # IMPORTANT: These should be overridden with strong, unique keys
 # in your deployment environment (e.g., Coolify, Kubernetes secrets, .env file).
 ENV MCPO_API_KEY="your-secret-mcpo-api-key"
-ENV MCPO_PORT=8002 # Changed to 8002
+# Port for MCPO to listen on
+ENV MCPO_PORT=8002
 
 # Command to run mcpo, passing the n8n-mcp's stdio command.
 # This launches the compiled n8n-mcp server and proxies its standard I/O to mcpo.

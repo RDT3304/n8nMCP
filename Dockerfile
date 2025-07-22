@@ -55,6 +55,6 @@ ENV MCPO_API_KEY="your-secret-mcpo-api-key"
 # Port for MCPO to listen on
 ENV MCPO_PORT=8002
 
-# Temporary CMD for debugging n8n-mcp startup.
-# We're adding DEBUG=* and using 'npm start' to see more verbose output.
-CMD DEBUG=* npm start --prefix /mcp_server_src
+# Command to run mcpo, passing the n8n-mcp's stdio command.
+# This launches the compiled n8n-mcp server and proxies its standard I/O to mcpo.
+CMD mcpo --port ${MCPO_PORT} --api-key ${MCPO_API_KEY} -- npm start --prefix /mcp_server_src
